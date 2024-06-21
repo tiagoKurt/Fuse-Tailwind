@@ -15,4 +15,5 @@ export class CadastrarUsuarioService {
   criarUsuario(usuario : CadastroUsuario) {
     return this.http.post(this.apiUrl, usuario);
   } 
+  
 }

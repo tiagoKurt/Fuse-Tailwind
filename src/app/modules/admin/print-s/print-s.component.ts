@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { BrowserModule } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { MessagesService } from 'app/layout/common/messages/messages.service';
 import { CadastrarUsuarioService } from 'app/services/cadastrarUsuario';
@@ -18,9 +19,20 @@ export class PrintSComponent {
   email: string = '';
   telefone: string = '';
   senha: string = '';
+  isRegistering: boolean = true;
+
 
   constructor(
     private cadastroUsuarioService: CadastrarUsuarioService, private messageService: MessagesService, private router : Router){}
+
+    irParaLogin() {
+      console.log('teste')
+      this.isRegistering = false;
+    }
+  
+    irParaCadastro() {
+      this.isRegistering = true;
+    }
 
   salvarUsuario() {
     const usuario: CadastroUsuario = {
@@ -40,5 +52,7 @@ export class PrintSComponent {
       }
     );
   }
+
+
 }
 

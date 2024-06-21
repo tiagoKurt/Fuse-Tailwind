@@ -41,7 +41,7 @@
     },
     "devDependencies": {
         "@angular-devkit/build-angular": "18.0.2",
-        "@angular/cli": "^18.0.2",
+        "@angular/cli": "^18.0.5",
         "@angular/compiler-cli": "18.0.1",
         "@tailwindcss/typography": "0.5.13",
         "@types/chroma-js": "2.4.4",
