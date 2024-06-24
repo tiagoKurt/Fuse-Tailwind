@@ -76,6 +76,7 @@ export const appRoutes: Route[] = [
         children: [
             {path: 'example', loadChildren: () => import('app/modules/admin/example/example.routes')},
             {path: 'printTela', loadChildren: () => import('app/modules/admin/print-s/print-s.routes')},
+            {path: 'risco', loadChildren: () => import('app/modules/admin/risco/risco.routes')},
         ]
     }
 ];

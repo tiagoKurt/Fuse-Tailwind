@@ -15,6 +15,13 @@ export const defaultNavigation: FuseNavigationItem[] = [
         type : 'basic',
         icon : 'heroicons_outline:chart-pie',
         link : '/printTela'
+    },
+    {
+        id   : 'risco',
+        title: 'Risco',
+        type : 'basic',
+        icon : 'heroicons_outline:exclamation-triangle',
+        link : '/risco'
     }
 ];
 export const compactNavigation: FuseNavigationItem[] = [

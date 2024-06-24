@@ -1,0 +1,77 @@
+<div class="absolute inset-0 flex min-w-0 flex-col overflow-hidden">
+    <!-- Header -->
+    <div
+        class="bg-default flex flex-0 flex-col p-6 pb-10 dark:bg-transparent sm:flex-row sm:items-center sm:justify-between sm:px-10 sm:pb-28 sm:pt-12"
+    >
+        <div class="min-w-0 flex-1">
+            <div class="mt-2">
+                <h2
+                    class="truncate text-3xl font-extrabold leading-7 tracking-tight sm:leading-10 md:text-4xl"
+                >
+                    Riscoooooooooo
+                </h2>
+            </div>
+        </div>
+
+        
+
+        <!-- Actions -->
+        <div class="mt-6 flex shrink-0 items-center sm:ml-4 sm:mt-0">
+            <button mat-stroked-button
+                class="rounded bg-accent px-2 py-2 text-on-accent "
+                type="button"
+            >
+                Cancelar
+            </button>
+            <div>
+                <button
+                    mat-flat-button
+                    class="ml-3 rounded bg-primary px-2 py-2 text-on-primary"
+                    type="button"
+                >
+                    Salvar
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="tab-group">
+        <mat-tab-group [animationDuration]="'0ms'">
+    
+            <mat-tab label="Identificação do risco">
+                <div class="gt-xs:flex-row flex flex-col">
+                    <mat-form-field
+                        class="gt-xs:pr-3 flex-auto"
+                    >
+                        <mat-label>First name</mat-label>
+                        <input matInput />
+                        <mat-icon
+                            class="icon-size-5"
+                            matSuffix
+                            [svgIcon]="'heroicons_solid:user-circle'"
+                        ></mat-icon>
+                    </mat-form-field>
+                    <mat-form-field
+                        class="gt-xs:pl-3 flex-auto"
+                    >
+                        <mat-label>Last name</mat-label>
+                        <input matInput />
+                        <mat-icon
+                            class="icon-size-5"
+                            matSuffix
+                            [svgIcon]="'heroicons_solid:user-circle'"
+                        ></mat-icon>
+                    </mat-form-field>
+                </div>
+            </mat-tab>
+    
+            <mat-tab label="Causa(s)"> </mat-tab>
+            <mat-tab label="Controle(s) Preventivo(s)"> </mat-tab>
+            <mat-tab label="Evento de Risco"> </mat-tab>
+            <mat-tab label="Consequência(s)"> </mat-tab>
+            <mat-tab label="Controle(s) Corretivo(s)"> </mat-tab>
+        </mat-tab-group>
+    </div>
+</div>
+
+
