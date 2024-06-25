@@ -4,16 +4,14 @@ import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
 export type objetivosEstrategi = {
-  id: number;
   objetivoEstrategico: string;
-};
+}; 
 
 @Injectable({
   providedIn: 'root'
 })
 export class ObjetivosEstrategicosService {
-  apiUrl = 'http://localhost:3000/ObjetivosEstrategicos';
-
+  apiUrl = 'http://localhost:3000/teste';
   constructor(private http: HttpClient) { }
 
   pegarObjetivos(): Observable<objetivosEstrategi[]> {
@@ -23,5 +21,9 @@ export class ObjetivosEstrategicosService {
         return throwError(error);
       })
     );
+  }
+
+  criarObjetivos(objetivos : objetivosEstrategi){
+    return this.http.post(this.apiUrl, objetivos);
   }
 }

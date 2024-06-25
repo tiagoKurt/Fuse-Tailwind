@@ -34,6 +34,7 @@ import { MatListModule } from '@angular/material/list';
 export class RiscoComponent implements OnInit {
   objetivosEstrategicos: objetivosEstrategi[] = [];
   errorMessage: string = '';
+  objetivoEstrategico : string = '';
 
   constructor(private objetivosEstrategicosService: ObjetivosEstrategicosService) { }
 
@@ -43,8 +44,23 @@ export class RiscoComponent implements OnInit {
         this.objetivosEstrategicos = data;
       },
       (error) => {
-        this.errorMessage = 'Erro ao carregar os objetivos estratégicos.';
+        this.errorMessage = 'Ainda não possui objetivos estratégicos cadastrados!';
         console.error('Erro ao carregar os objetivos estratégicos:', error);
+      }
+    );
+  }
+
+  salvarObjetivo() {
+    const objetivo: objetivosEstrategi = {
+      objetivoEstrategico : this.objetivoEstrategico
+    };
+
+    this.objetivosEstrategicosService.criarObjetivos(objetivo).subscribe(
+      (response) => {
+
+      },
+      (error) => {
+        console.error('Erro ao Criar Usuario:', error);
       }
     );
   }
