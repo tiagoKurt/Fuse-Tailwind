@@ -1,34 +1,20 @@
 <div class="absolute inset-0 flex min-w-0 flex-col overflow-hidden">
     <!-- Header -->
-    <div
-        class="bg-default flex flex-0 flex-col p-6 pb-10 dark:bg-transparent sm:flex-row sm:items-center sm:justify-between sm:px-10 sm:pb-28 sm:pt-12"
-    >
+    <div class="bg-default flex flex-0 flex-col p-6 pb-10 dark:bg-transparent sm:flex-row sm:items-center sm:justify-between sm:px-10 sm:pb-28 sm:pt-12">
         <div class="min-w-0 flex-1">
             <div class="mt-2">
-                <h2
-                    class="truncate text-3xl font-extrabold leading-7 tracking-tight sm:leading-10 md:text-4xl"
-                >
-                    Riscoooooooooo
+                <h2 class="truncate text-3xl font-extrabold leading-7 tracking-tight sm:leading-10 md:text-4xl">
+                    Risco
                 </h2>
             </div>
         </div>
-
-        
-
         <!-- Actions -->
         <div class="mt-6 flex shrink-0 items-center sm:ml-4 sm:mt-0">
-            <button mat-stroked-button
-                class="rounded bg-accent px-2 py-2 text-on-accent "
-                type="button"
-            >
+            <button mat-flat-button class="rounded bg-accent px-2 py-2 text-on-accent" type="button">
                 Cancelar
             </button>
             <div>
-                <button
-                    mat-flat-button
-                    class="ml-3 rounded bg-primary px-2 py-2 text-on-primary"
-                    type="button"
-                >
+                <button mat-flat-button class="ml-3 rounded bg-primary px-2 py-2 text-on-primary" type="button">
                     Salvar
                 </button>
             </div>
@@ -37,34 +23,50 @@
 
     <div class="tab-group">
         <mat-tab-group [animationDuration]="'0ms'">
-    
             <mat-tab label="Identificação do risco">
                 <div class="gt-xs:flex-row flex flex-col">
-                    <mat-form-field
-                        class="gt-xs:pr-3 flex-auto"
-                    >
-                        <mat-label>First name</mat-label>
+                    <mat-form-field class="gt-xs:pr-3 flex-auto">
+                        <mat-label>Classificação do risco*</mat-label>
                         <input matInput />
-                        <mat-icon
-                            class="icon-size-5"
-                            matSuffix
-                            [svgIcon]="'heroicons_solid:user-circle'"
-                        ></mat-icon>
                     </mat-form-field>
-                    <mat-form-field
-                        class="gt-xs:pl-3 flex-auto"
-                    >
-                        <mat-label>Last name</mat-label>
+                    <mat-form-field class="gt-xs:pl-3 flex-auto">
+                        <mat-label>Objetivo(s) Estratégico(s)*</mat-label>
                         <input matInput />
-                        <mat-icon
-                            class="icon-size-5"
-                            matSuffix
-                            [svgIcon]="'heroicons_solid:user-circle'"
-                        ></mat-icon>
+                        <button>
+                            <mat-icon class="rounded bg-primary text-on-primary">add</mat-icon>
+                        </button>
                     </mat-form-field>
+
+                    <div *ngIf="errorMessage" class="error-message">
+                        {{ errorMessage }}
+                    </div>
+                    <div *ngIf="!errorMessage" class="rounded border-2 border-primary">
+                        <mat-list class="text-on-primary-200" role="list" style="max-height: 150px; overflow-y: auto;">
+                          <mat-list-item *ngFor="let objetivo of objetivosEstrategicos" role="listitem">
+                              {{ objetivo.objetivoEstrategico }}
+                          </mat-list-item>
+                        </mat-list>
+                    </div>
+
+                    <mat-form-field class="gt-xs:pl-3 flex-auto py-5">
+                        <mat-label>Objetivo(s) Operacional(s)*</mat-label>
+                        <input matInput />
+                        <button>
+                            <mat-icon class="rounded bg-primary text-on-primary">add</mat-icon>
+                        </button>
+                    </mat-form-field>
+
+                    <div class="rounded border-2 border-primary">
+                        <mat-list class="text-on-primary-200" role="list" style="max-height: 150px; overflow-y: auto;">
+                          <mat-list-item role="listitem">Item 1</mat-list-item>
+                          <mat-list-item role="listitem">Item 2</mat-list-item>
+                          <mat-list-item role="listitem">Item 3</mat-list-item>
+                          <mat-list-item role="listitem">Item 4</mat-list-item>
+                          <mat-list-item role="listitem">Item 5</mat-list-item>
+                        </mat-list>
+                    </div>
                 </div>
             </mat-tab>
-    
             <mat-tab label="Causa(s)"> </mat-tab>
             <mat-tab label="Controle(s) Preventivo(s)"> </mat-tab>
             <mat-tab label="Evento de Risco"> </mat-tab>
@@ -73,5 +75,3 @@
         </mat-tab-group>
     </div>
 </div>
-
-
