@@ -40,13 +40,21 @@
                     <div *ngIf="errorMessage" class="error-message">
                         {{ errorMessage }}
                     </div>
-                    <div *ngIf="!errorMessage" class="rounded border-2 border-primary">
-                        <mat-list class="text-on-primary-200" role="list" style="max-height: 150px; overflow-y: auto;">
-                          <mat-list-item *ngFor="let objetivo of objetivosEstrategicos" role="listitem">
-                              {{ objetivo.objetivoEstrategico }}
-                          </mat-list-item>
-                        </mat-list>
-                    </div>
+
+                    <div class="p-4 rounded border-2 border-primary">
+                        <div class="bg-primary-200 text-on-primary-200 shadow-sm overflow-y-auto" style="max-height: 200px;">
+                          <div *ngFor="let objetivo of objetivosEstrategicos; let last = last" class="p-4 w-full flex justify-between items-center border-primary" [ngClass]="{'border-b': !last}">
+                            <span>{{ objetivo.objetivoEstrategico }}</span>
+                            <button>
+                              <mat-icon class="hover:text-red-600" svgIcon="edit"></mat-icon>
+                            </button>
+                            <button>
+                              <mat-icon class="hover:text-red-600" svgIcon="heroicons_outline:trash"></mat-icon>
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                                                                                                        
 
                     <mat-form-field class="gt-xs:pl-3 flex-auto py-5">
                         <mat-label>Objetivo(s) Operacional(s)*</mat-label>
@@ -56,16 +64,19 @@
                         </button>
                     </mat-form-field>
 
-                    <div class="rounded border-2 border-primary">
-                        <mat-list class="text-on-primary-200" role="list" style="max-height: 150px; overflow-y: auto;">
-                          <mat-list-item role="listitem">Item 1</mat-list-item>
-                          <mat-list-item role="listitem">Item 2</mat-list-item>
-                          <mat-list-item role="listitem">Item 3</mat-list-item>
-                          <mat-list-item role="listitem">Item 4</mat-list-item>
-                          <mat-list-item role="listitem">Item 5</mat-list-item>
-                        </mat-list>
-                    </div>
+                    <div class="p-4 rounded border-2 border-primary">
+                        <div class=" bg-primary-200 text-on-primary-200 shadow-sm overflow-y-auto" style="max-height: 200px;">
+                          <div *ngFor="let objetivo of objetivosEstrategicos; let last = last" class="p-4 w-full flex justify-between items-center border-primary" [ngClass]="{'border-b': !last}">
+                            <span>{{ objetivo.objetivoEstrategico }}</span>
+                            <button>
+                              <mat-icon class="hover:text-red-600" svgIcon="heroicons_outline:trash"></mat-icon>
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+
                 </div>
+
             </mat-tab>
             <mat-tab label="Causa(s)"> </mat-tab>
             <mat-tab label="Controle(s) Preventivo(s)"> </mat-tab>

@@ -4,6 +4,7 @@ import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
 export type objetivosEstrategi = {
+  id?: number;
   objetivoEstrategico: string;
 }; 
 
@@ -26,4 +27,9 @@ export class ObjetivosEstrategicosService {
   criarObjetivos(objetivos : objetivosEstrategi){
     return this.http.post(this.apiUrl, objetivos);
   }
+
+  deletarProduto(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.apiUrl}/${id}`);
+  }
+  
 }
