@@ -21,64 +21,13 @@
         </div>
     </div>
 
-    <div class="tab-group">
+    <div class="tab-group flex-1">
         <mat-tab-group [animationDuration]="'0ms'">
             <mat-tab label="Identificação do risco">
-                <div class="gt-xs:flex-row flex flex-col">
-                    <mat-form-field class="gt-xs:pr-3 flex-auto">
-                        <mat-label>Classificação do risco*</mat-label>
-                        <input matInput />
-                    </mat-form-field>
-                    <mat-form-field class="gt-xs:pl-3 flex-auto">
-                        <mat-label>Objetivo(s) Estratégico(s)*</mat-label>
-                        <input matInput [(ngModel)]="objetivoEstrategico" />
-                        <button (click)="salvarObjetivo()">
-                            <mat-icon class="rounded bg-primary text-on-primary">add</mat-icon>
-                        </button>
-                    </mat-form-field>
+                <app-identificacao-risco></app-identificacao-risco>
 
-                    <div *ngIf="errorMessage" class="error-message">
-                        {{ errorMessage }}
-                    </div>
-
-                    <div class="p-4 rounded border-2 border-primary">
-                        <div class="bg-primary-200 text-on-primary-200 shadow-sm overflow-y-auto" style="max-height: 200px;">
-                          <div *ngFor="let objetivo of objetivosEstrategicos; let last = last" class="p-4 w-full flex justify-between items-center border-primary" [ngClass]="{'border-b': !last}">
-                            <span>{{ objetivo.objetivoEstrategico }}</span>
-                            <button>
-                              <mat-icon class="hover:text-red-600" svgIcon="edit"></mat-icon>
-                            </button>
-                            <button>
-                              <mat-icon class="hover:text-red-600" svgIcon="heroicons_outline:trash"></mat-icon>
-                            </button>
-                          </div>
-                        </div>
-                      </div>
-                                                                                                        
-
-                    <mat-form-field class="gt-xs:pl-3 flex-auto py-5">
-                        <mat-label>Objetivo(s) Operacional(s)*</mat-label>
-                        <input matInput />
-                        <button>
-                            <mat-icon class="rounded bg-primary text-on-primary">add</mat-icon>
-                        </button>
-                    </mat-form-field>
-
-                    <div class="p-4 rounded border-2 border-primary">
-                        <div class=" bg-primary-200 text-on-primary-200 shadow-sm overflow-y-auto" style="max-height: 200px;">
-                          <div *ngFor="let objetivo of objetivosEstrategicos; let last = last" class="p-4 w-full flex justify-between items-center border-primary" [ngClass]="{'border-b': !last}">
-                            <span>{{ objetivo.objetivoEstrategico }}</span>
-                            <button>
-                              <mat-icon class="hover:text-red-600" svgIcon="heroicons_outline:trash"></mat-icon>
-                            </button>
-                          </div>
-                        </div>
-                      </div>
-
-                </div>
-
+            </mat-tab><mat-tab label="Causa(s)"> 
             </mat-tab>
-            <mat-tab label="Causa(s)"> </mat-tab>
             <mat-tab label="Controle(s) Preventivo(s)"> </mat-tab>
             <mat-tab label="Evento de Risco"> </mat-tab>
             <mat-tab label="Consequência(s)"> </mat-tab>

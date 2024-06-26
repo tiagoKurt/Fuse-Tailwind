@@ -17,11 +17,27 @@ export const defaultNavigation: FuseNavigationItem[] = [
         link : '/printTela'
     },
     {
-        id   : 'risco',
-        title: 'Risco',
-        type : 'basic',
-        icon : 'heroicons_outline:exclamation-triangle',
-        link : '/risco'
+        id: 'analise.riscos',
+        title: 'Riscos',
+        type: 'collapsable',
+        icon: 'heroicons_outline:presentation-chart-line',
+        children :[
+            {
+                id   : 'Riscos',
+                title: 'Riscos',
+                type : 'basic',
+                icon : 'heroicons_outline:presentation-chart-line',
+                link : '/risco'
+            },
+            {
+                id   : 'teste',
+                title: 'example',
+                type : 'basic',
+                icon : 'heroicons_outline:presentation-chart-line',
+                link : '/example'
+            }
+ 
+        ]
     }
 ];
 export const compactNavigation: FuseNavigationItem[] = [
