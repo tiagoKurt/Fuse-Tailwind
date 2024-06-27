@@ -1,4 +1,4 @@
-<div class="absolute inset-0 flex min-w-0 flex-col overflow-hidden">
+<div class="absolute inset-0 flex min-w-0 flex-col overflow-auto">
     <!-- Header -->
     <div class="bg-default  flex flex-col p-0 pb-1 dark:bg-transparent sm:flex-row sm:items-center sm:justify-between sm:px-4 sm:pb-4 sm:pt-4">
         <div class="min-w-0 flex-1">
@@ -24,7 +24,8 @@
     <div class="tab-group flex-1">
         <mat-tab-group [animationDuration]="'0ms'">
             <mat-tab label="Identificação do risco">
-                <app-identificacao-risco></app-identificacao-risco>
+
+                    <app-identificacao-risco></app-identificacao-risco>
 
             </mat-tab><mat-tab label="Causa(s)"> 
             </mat-tab>
