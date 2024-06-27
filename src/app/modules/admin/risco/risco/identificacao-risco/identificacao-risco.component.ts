@@ -108,4 +108,26 @@ export class IdentificacaoRiscoComponent {
     );
   }
 
+  removerObjetivo(objetivo: Objetivos) {
+    this.objetivosEstrategicosService.deletarProduto(objetivo.id!).subscribe(
+      () => {
+        this.objetivosEstrategicos = this.objetivosEstrategicos.filter(o => o !== objetivo);
+      },
+      (error) => {
+        console.error('Erro ao remover objetivo:', error);
+      }
+    );
+  }
+
+  removerObjetivoOperacional(objetivo: Objetivos) {
+    this.objetivosEstrategicosService.deletarProduto(objetivo.id!).subscribe(
+      () => {
+        this.objetivosOperacionais = this.objetivosOperacionais.filter(o => o !== objetivo);
+      },
+      (error) => {
+        console.error('Erro ao remover objetivo:', error);
+      }
+    );
+  }
+
 }
