@@ -3,13 +3,10 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
-export type objetivosEstrategi = {
+export type Objetivos = {
   id?: number;
-  objetivoEstrategico: string;
-}; 
-export type objetivosOperacio = {
-  id?: number;
-  objetivoOperacional: string;
+  tipoObjetivo : string;
+  objetivo : string;
 }; 
 
 @Injectable({
@@ -17,11 +14,10 @@ export type objetivosOperacio = {
 })
 export class ObjetivosEstrategicosService {
   apiUrl = 'http://localhost:3000/teste';
-  apiUrlOperacionais = 'http://localhost:3000/objetivosOperacionais'
   constructor(private http: HttpClient) { }
 
-  pegarObjetivos(): Observable<objetivosEstrategi[]> {
-    return this.http.get<objetivosEstrategi[]>(this.apiUrl).pipe(
+  pegarObjetivos(): Observable<Objetivos[]> {
+    return this.http.get<Objetivos[]>(this.apiUrl).pipe(
       catchError(error => {
         console.error('Erro ao buscar os objetivos estratégicos:', error);
         return throwError(error);
@@ -29,8 +25,8 @@ export class ObjetivosEstrategicosService {
     );
   }
 
-  pegarOperacionais(): Observable<objetivosOperacio[]> {
-    return this.http.get<objetivosOperacio[]>(this.apiUrlOperacionais).pipe(
+  pegarOperacionais(): Observable<Objetivos[]> {
+    return this.http.get<Objetivos[]>(this.apiUrl).pipe(
       catchError(error => {
         console.error('Erro ao buscar os operacionais:', error);
         return throwError(error);
@@ -38,11 +34,12 @@ export class ObjetivosEstrategicosService {
     );
   }
 
-  criarObjetivos(objetivos : objetivosEstrategi){
+  criarObjetivos(objetivos : Objetivos){
     return this.http.post(this.apiUrl, objetivos);
   }
-  criarObjetivosOperacionais(operacionais : objetivosOperacio){
-    return this.http.post(this.apiUrlOperacionais, operacionais);
+  
+  criarObjetivosOperacionais(operacionais : Objetivos){
+    return this.http.post(this.apiUrl, operacionais);
   }
 
   deletarProduto(id: number): Observable<void> {
