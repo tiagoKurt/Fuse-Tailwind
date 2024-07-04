@@ -26,7 +26,8 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     MatIconModule,
     MatInputModule,
     MatListModule,
-    MatFormFieldModule, MatSelectModule, FormsModule, ReactiveFormsModule  
+    FormsModule, 
+    ReactiveFormsModule  
   ],
   templateUrl: './identificacao-risco.component.html',
   styleUrl: './identificacao-risco.component.scss',
@@ -109,7 +110,7 @@ export class IdentificacaoRiscoComponent {
   }
 
   removerObjetivo(objetivo: Objetivos) {
-    this.objetivosEstrategicosService.deletarProduto(objetivo.id!).subscribe(
+    this.objetivosEstrategicosService.deletarObjetivos(objetivo.id!).subscribe(
       () => {
         this.objetivosEstrategicos = this.objetivosEstrategicos.filter(o => o !== objetivo);
       },
@@ -120,7 +121,7 @@ export class IdentificacaoRiscoComponent {
   }
 
   removerObjetivoOperacional(objetivo: Objetivos) {
-    this.objetivosEstrategicosService.deletarProduto(objetivo.id!).subscribe(
+    this.objetivosEstrategicosService.deletarObjetivos(objetivo.id!).subscribe(
       () => {
         this.objetivosOperacionais = this.objetivosOperacionais.filter(o => o !== objetivo);
       },
@@ -128,6 +129,48 @@ export class IdentificacaoRiscoComponent {
         console.error('Erro ao remover objetivo:', error);
       }
     );
+  }
+
+  onSelectChange(event: any): void {
+    const selectedTopping = event.value;
+
+    if (selectedTopping) {
+      const objetivo: Objetivos = {
+        tipoObjetivo: 'estrategico',
+        objetivo: selectedTopping
+      };
+
+      this.objetivosEstrategicosService.criarObjetivos(objetivo).subscribe(
+        (response) => {
+          this.objetivosEstrategicos.push(objetivo);
+          this.toppings.setValue('');
+        },
+        (error) => {
+          console.error('Erro ao criar objetivo:', error);
+        }
+      );
+    }
+  }
+
+  onSelectChangeOperacional(event: any): void {
+    const selectedTopping = event.value;
+
+    if (selectedTopping) {
+      const objetivo: Objetivos = {
+        tipoObjetivo: 'operacional',
+        objetivo: selectedTopping
+      };
+
+      this.objetivosEstrategicosService.criarObjetivos(objetivo).subscribe(
+        (response) => {
+          this.objetivosOperacionais.push(objetivo);
+          this.toppings.setValue('');
+        },
+        (error) => {
+          console.error('Erro ao criar objetivo:', error);
+        }
+      );
+    }
   }
 
 }

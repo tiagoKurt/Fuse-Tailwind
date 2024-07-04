@@ -42,7 +42,7 @@ export class ObjetivosEstrategicosService {
     return this.http.post(this.apiUrl, operacionais);
   }
 
-  deletarProduto(id: number): Observable<void> {
+  deletarObjetivos(id: number): Observable<void> {
     return this.http.delete<void>(`${this.apiUrl}/${id}`);
   }
   

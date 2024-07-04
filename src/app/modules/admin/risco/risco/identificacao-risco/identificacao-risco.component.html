@@ -1,4 +1,4 @@
-<div class="gt-xs:flex-row flex flex-col overflow-auto">
+<div class="gt-xs:flex-row flex flex-col ">
     
   <mat-form-field class=" max-w-200">
     <mat-label>Classificação do risco*</mat-label>
@@ -9,52 +9,70 @@
     </mat-select>
   </mat-form-field>
     
-    
-    
-  <mat-form-field class="gt-xs:pl-3 max-w-200">
+  <!-- <mat-form-field class="gt-xs:pl-3 max-w-200">
     <mat-label>Objetivo(s) Estratégico(s)*</mat-label>
     <input matInput [(ngModel)]="objetivoEstrategicoo" />
     <button (click)="salvarObjetivo()">
       <mat-icon class="rounded bg-primary text-on-primary hover:text-white">add</mat-icon>
     </button>
+  </mat-form-field> -->
+
+  <mat-form-field class="max-w-200">
+    <mat-label>Objetivo(s) Estratégico(s)*</mat-label>
+    <mat-select [formControl]="toppings" (selectionChange)="onSelectChange($event)">
+      <mat-option *ngFor="let topping of toppingList" [value]="topping">
+        {{topping}}
+      </mat-option>
+    </mat-select>
   </mat-form-field>
 
   <div *ngIf="errorMessage" class="error-message">
     {{ errorMessage }}
   </div>
   
-  <div class="p-4 rounded border-2 border-primary max-w-280 " *ngIf="!errorMessage ">
-    <div class="bg-white shadow-md rounded-lg overflow-hidden overflow-y-auto dark:bg-transparent max-w-280" style="max-height: 200px;">
-      <div *ngFor="let objetivo of objetivosEstrategicos; let last = last" class="p-4 w-full flex justify-between items-center border-primary" [ngClass]="{'border-b': !last}">
+
+    <div class="bg-white shadow-md rounded-lg overflow-hidden overflow-y-auto dark:bg-transparent max-w-280 p-4" style="max-height: 200px;" *ngIf="!errorMessage ">
+      <div *ngFor="let objetivo of objetivosEstrategicos; let last = last" class="p-3 w-full flex justify-between items-center border-primary" [ngClass]="{'border-b': !last}">
         <span>{{ objetivo.objetivo }}</span>
         <button (click)="removerObjetivo(objetivo)">
           <mat-icon class="hover:text-red-600" svgIcon="heroicons_outline:trash"></mat-icon>
         </button>
       </div>
     </div>
-  </div>
 
-  <mat-form-field class="gt-xs:pl-3 py-5 max-w-200 ">
+  <!-- <mat-form-field class="gt-xs:pl-3 pt-5 max-w-200 ">
     <mat-label>Objetivo(s) Operacional(s)*</mat-label>
     <input matInput [(ngModel)]="objetivoOperacionalInput" />
     <button (click)="salvarObjetivoOperacional()">
       <mat-icon class="rounded bg-primary text-on-primary">add</mat-icon>
     </button>
+  </mat-form-field> -->
+
+  <mat-form-field class="max-w-200 pt-5">
+    <mat-label>Objetivo(s) Operacional(s)*</mat-label>
+    <mat-select [formControl]="toppings" (selectionChange)="onSelectChangeOperacional($event)">
+      <mat-option *ngFor="let topping of toppingList" [value]="topping">
+        {{topping}}
+      </mat-option>
+    </mat-select>
   </mat-form-field>
 
   <div *ngIf="errorMessage2" class="error-message">
     {{ errorMessage2 }}
   </div>
 
-  <div class="p-4 rounded border-2 border-primary max-w-280 " *ngIf="!errorMessage2">
-    <div class="bg-white shadow-md rounded-lg overflow-hidden overflow-y-auto dark:bg-transparent max-w-280" >
-      <div *ngFor="let operacional of objetivosOperacionais; let last = last" class="p-4 w-full flex justify-between items-center border-primary" [ngClass]="{'border-b': !last}">
+    <div class="bg-white shadow-md rounded-lg overflow-hidden overflow-y-auto dark:bg-transparent max-w-280 p-4" style="max-height: 200px;" *ngIf="!errorMessage2">
+      <div *ngFor="let operacional of objetivosOperacionais; let last = last" class="p-3 w-full flex justify-between items-center border-primary" [ngClass]="{'border-b': !last}">
         <span>{{ operacional.objetivo }}</span>
         <button (click)="removerObjetivoOperacional(operacional)">
           <mat-icon class="hover:text-red-600" svgIcon="heroicons_outline:trash"></mat-icon>
         </button>
       </div>
     </div>
-  </div>
-
+  
+  <mat-form-field class="max-w-280 pt-5">
+    <mat-label>Evento de risco*</mat-label>
+    <textarea matInput></textarea>
+  </mat-form-field>
+  
 </div>
