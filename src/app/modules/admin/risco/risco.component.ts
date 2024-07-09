@@ -1,6 +1,7 @@
 import { Component} from '@angular/core';
 import { MatTab, MatTabGroup } from '@angular/material/tabs';
 import { IdentificacaoRiscoComponent } from './risco/identificacao-risco/identificacao-risco.component';
+import { ConsequenciasComponent } from './risco/consequencias/consequencias.component';
 
 
 @Component({
@@ -8,7 +9,8 @@ import { IdentificacaoRiscoComponent } from './risco/identificacao-risco/identif
   standalone: true,
   imports: [MatTab,
     MatTabGroup,
-    IdentificacaoRiscoComponent
+    IdentificacaoRiscoComponent,
+    ConsequenciasComponent
   ],
   templateUrl: './risco.component.html',
   styleUrls: ['./risco.component.scss']
