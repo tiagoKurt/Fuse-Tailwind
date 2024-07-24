@@ -16,7 +16,7 @@
       <div class="bg-white shadow-md rounded-lg overflow-hidden overflow-y-auto dark:bg-transparent max-w-280 p-4" style="max-height: 200px;" *ngIf="!errorMessage ">
         <div *ngFor="let consequencia of consequenciasLista; let last = last" class="p-3 w-full flex justify-between items-center border-primary" [ngClass]="{'border-b': !last}">
           <span>{{ consequencia.consequencia }}</span>
-          <button (click)="removerConsequencia()">
+          <button (click)="removerConsequencia(consequencia)">
             <mat-icon class="hover:text-red-600" svgIcon="heroicons_outline:trash"></mat-icon>
           </button>
         </div>

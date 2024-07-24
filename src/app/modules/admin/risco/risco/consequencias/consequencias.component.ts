@@ -7,7 +7,6 @@ import { MatFormField, MatFormFieldModule, MatLabel } from '@angular/material/fo
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatListModule } from '@angular/material/list';
-import { MatSelectModule } from '@angular/material/select';
 import { MatTabsModule } from '@angular/material/tabs';
 import { FuseHighlightComponent } from '@fuse/components/highlight';
 import { ConsequenciaService, Consequencias } from 'app/services/consequencia.service';
@@ -65,10 +64,10 @@ export class ConsequenciasComponent implements OnInit{
     )
   }
 
-  removerConsequencia(objetivo: Consequencias) {
-    this.consequenciasService.deletarConsequencias(objetivo.id).subscribe(
+  removerConsequencia(consequencia: Consequencias) {
+    this.consequenciasService.deletarConsequencias(consequencia.id!).subscribe(
       () => {
-        this.consequenciasLista = this.consequenciasLista.filter(o => o !== objetivo);
+        this.consequenciasLista = this.consequenciasLista.filter(o => o !== consequencia);
       },
       (error) => {
         console.error('Erro ao remover objetivo:', error);
